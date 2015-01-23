@@ -1,4 +1,4 @@
-How to install?
+How to install
 ===============
 
 NOTE : this package is only for english and french users. For an other language
