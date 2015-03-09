@@ -48,6 +48,7 @@ public class Person extends AbstractEntity implements Comparable<Person> {
 	public Person() {
 		super();
 	}
+	
 
 	public Person(Gender gender, String firstname, String lastname,
 			String abbreviation, Date birthday, Date dayofdeath,
@@ -66,6 +67,25 @@ public class Person extends AbstractEntity implements Comparable<Person> {
 		this.category = category;
 		this.attributes = attributes;
 	}
+	
+	 public void setValues(String[] values) {
+		         Gender g = new Gender();
+		         g.setGenderType(g, values[0]);
+		         setGender(g);
+		         setFirstname(values[1]);
+		         setLastname(values[2]);
+		         String abbr = generateAbbr(values[1]);
+		         setAbbreviation(abbr);
+		         Category c = new Category();
+		         c.setId((long) 1);
+		         setCategory(c);
+		    }
+	 
+	 
+	 private String generateAbbr(String firstName) {
+		 String abbr = firstName.length() > 1 ? firstName.substring(0, 2) : "";
+		 return abbr;
+	 }
 
 	/**
 	 * @hibernate.id

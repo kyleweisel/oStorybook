@@ -50,6 +50,13 @@ public class Gender extends AbstractEntity {
 		this.adulthood = adulthood;
 		this.retirement = retirement;
 	}
+	
+	 public Gender setGenderType(Gender g, String type) {
+		 long genderId = g.equals(type) ? 1 : 2;
+		 g.setId(genderId);
+		return g;
+		 
+	 }
 
 	/**
 	 * @hibernate.id

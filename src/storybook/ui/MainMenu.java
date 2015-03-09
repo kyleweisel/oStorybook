@@ -1483,6 +1483,7 @@ public class MainMenu extends javax.swing.JFrame {
         mainFrame.setWaitingCursor();
 		SbApp.getInstance().openFile();
 		mainFrame.setDefaultCursor();
+
     }//GEN-LAST:event_fileOpenActionPerformed
 
     private void fileSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileSaveActionPerformed
@@ -1898,6 +1899,17 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btNewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPersonActionPerformed
         this.newPersonActionPerformed(evt);
+        String gender = "female";
+                String firstname = "Soft";
+               String lastname = "Wang";
+               //
+        
+               Person p = new Person();
+                String[] importedValues = {gender, firstname, lastname};
+                p.setValues(importedValues);
+                mainFrame.getBookController().newPerson(p);
+        
+               mainFrame.setDefaultCursor();
     }//GEN-LAST:event_btNewPersonActionPerformed
 
     private void btNewLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewLocationActionPerformed
