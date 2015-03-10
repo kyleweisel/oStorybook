@@ -1,7 +1,20 @@
 package storybook.toolkit;
 
+import storybook.model.hbn.entity.Person;
+
+import java.io.File;
+import java.util.ArrayList;
+
 /**
- * Created by kbw28 on 3/9/15.
+ * This class is responsible for generating Person objects from the contents of a text file
  */
-public class PersonFactory {
+public final class PersonFactory {
+
+    public final ArrayList<Person> extractPersonsFromFile(final File file) {
+
+
+
+        return null;
+    }
+
 }
