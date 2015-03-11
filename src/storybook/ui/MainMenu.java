@@ -2248,7 +2248,7 @@ public class MainMenu extends javax.swing.JFrame {
 		javax.swing.JMenuItem[] submenus={
 			editCopyBlurb, editCopyBook,
 			fileClose, fileExport, filePrint,
-			fileProperties, fileRename, fileSave, fileSaveAs
+			fileProperties, fileRename, fileSave, fileSaveAs, fileImport
 		};
 		for (javax.swing.JMenuItem m : submenus) {
 			m.setVisible(false);
