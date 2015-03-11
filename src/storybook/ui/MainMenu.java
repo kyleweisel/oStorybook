@@ -12,10 +12,11 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 
+import edu.drexel.se410.PersonFactory;
 import storybook.SbApp;
 import storybook.SbConstants;
 import storybook.SbConstants.ViewName;
@@ -23,7 +24,6 @@ import storybook.action.LangToolAction;
 import storybook.controller.BookController;
 import storybook.export.BookExporter;
 import storybook.export.DlgExport;
-import storybook.model.DbFile;
 import storybook.model.hbn.entity.AbstractEntity;
 import storybook.model.hbn.entity.Category;
 import storybook.model.hbn.entity.Chapter;
@@ -42,7 +42,6 @@ import storybook.model.hbn.entity.TagLink;
 import storybook.toolkit.BookUtil;
 import storybook.toolkit.DockingWindowUtil;
 import storybook.toolkit.I18N;
-import storybook.toolkit.PersonFactory;
 import storybook.toolkit.net.NetUtil;
 import storybook.toolkit.net.Updater;
 import storybook.toolkit.swing.SwingUtil;
@@ -128,7 +127,9 @@ public class MainMenu extends javax.swing.JFrame {
         separatorFile1 = new javax.swing.JPopupMenu.Separator();
         fileProperties = new javax.swing.JMenuItem();
         separatorFile2 = new javax.swing.JPopupMenu.Separator();
+        // ############################################################################################
         fileImport = new javax.swing.JMenuItem();
+        // ############################################################################################
         fileExport = new javax.swing.JMenuItem();
         filePrint = new javax.swing.JMenuItem();
         separatorFile3 = new javax.swing.JPopupMenu.Separator();
@@ -651,10 +652,10 @@ public class MainMenu extends javax.swing.JFrame {
         menuFile.add(fileExport);
 
         /**
+         * ############################################################################################
+         *
          * Create the import option on the file menu.
          */
-        //fileImport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        //fileImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/storybook/resources/icons/16x16/export.png"))); // NOI18N
         fileImport.setText("Import Characters"); // NOI18N
         fileImport.setActionCommand("import-command");
         fileImport.addActionListener(new java.awt.event.ActionListener() {
@@ -663,6 +664,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         menuFile.add(fileImport);
+
+        // ############################################################################################
 
         filePrint.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         filePrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/storybook/resources/icons/16x16/print.png"))); // NOI18N
@@ -1533,13 +1536,16 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_fileExportActionPerformed
 
     /**
+     * ############################################################################################
+     *
      * Method is called after the file > import characters item is clicked.
      * @param evt
      */
     private void fileImportActionPerformed(final java.awt.event.ActionEvent evt) {
 
         System.out.println("File > Import Characters was clicked.");
-        /*final File file = BookUtil.openImportDocumentDialog();
+
+        final File file = BookUtil.openImportDocumentDialog();
         final BookController bookController = this.mainFrame.getBookController();
 
         if (file != null) {
@@ -1548,7 +1554,7 @@ public class MainMenu extends javax.swing.JFrame {
 
             // Let the person factory do the decoding
             final PersonFactory personFactory = new PersonFactory();
-            final ArrayList<Person> persons = personFactory.extractPersonsFromFile(file);
+            final List<Person> persons = personFactory.extractPersonsFromFile(file.getAbsolutePath());
 
             // Loop through the people in the array and add them one-by-one
             for (final Person p : persons) {
@@ -1557,35 +1563,9 @@ public class MainMenu extends javax.swing.JFrame {
 
         }
 
-        */
-
-        // Add a first person
-        Person p = new Person();
-        Gender g = new Gender();
-
-        g.setId(1L);
-        p.setGender(g);
-        p.setFirstname("Kyle");
-        p.setLastname("Weisel");
-        p.setAbbreviation("KW");
-
-        final BookController bookController = this.mainFrame.getBookController();
-        bookController.newPerson(p);
-
-        // Add a second person
-
-        Person p2 = new Person();
-        Gender g2 = new Gender();
-
-        g2.setId(2L);
-        p2.setGender(g2);
-        p2.setFirstname("Meghan");
-        p2.setLastname("Weisel");
-        p2.setAbbreviation("MW");
-
-        bookController.newPerson(p2);
-
     }
+
+    // ############################################################################################
 
     private void filePrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filePrintActionPerformed
         // TODO filePrint
